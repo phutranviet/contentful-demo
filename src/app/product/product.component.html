@@ -1,0 +1,10 @@
+<main *ngIf="products$ | async as product">
+  <div class="product-detail-container">
+    <img
+      alt="shoes store"
+      [src]="product.fields.productImage.fields.file.url"
+    />
+    <h2>{{ product.fields.productName }}</h2>
+    <p class="price">{{ product.fields.productPrice | currency }}</p>
+  </div>
+</main>

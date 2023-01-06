@@ -1,0 +1,19 @@
+<header>
+  <div>
+    <span class="logo-1">Walking</span>
+    <span class="logo-2">On</span>
+    <span class="logo-3">Air</span>
+  </div>
+</header>
+
+<main *ngIf="products$ | async as products">
+  <div class="product-container" *ngFor="let product of products.items">
+    <img
+      alt="shoes store"
+      [src]="product.fields.productImage.fields.file.url"
+    />
+    <h2>{{ product.fields.productName }}</h2>
+    <p class="price">{{ product.fields.productPrice | currency }}</p>
+    <a [routerLink]="['product', product.fields.productName, product.sys.id]">View details</a>
+  </div>
+</main>
